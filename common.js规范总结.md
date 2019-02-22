@@ -1,27 +1,27 @@
 - 1、引入 path、fs 模块
 - 2、创建 req 方法，并传入文件（模块）路径作为参数
--    - 使用 path.resolve(__dirname, modulePath) 方法获取绝对路径
--    - 创建模块 new Module()
+    - 使用 path.resolve(__dirname, modulePath) 方法获取绝对路径
+    - 创建模块 new Module()
 -        Module 类包括 id 和 exports 属性
 -        id：文件夹
 -        exports：需要导出的具体内容
--    - 尝试加载模块 tryModuleLoad(module)
+    - 尝试加载模块 tryModuleLoad(module)
 -        path.extname(module.id)：获取文件后缀
 -        创建一个 Module._extensions 对象，包括读取 .js 和 .json 文件的方法
--            - 读取 json 文件：
+            - 读取 json 文件：
 -             .json 方法通过传入的 module 参数获取到文件路径后使用 readFile 方法直接读取文件内容，最后使用 module.exports 导出（json 文件不需要运行直接导出即可）
 -             Module._extensions[extension](module)：通过获取的后缀名在 Module._extensions 对象中找到相应的方法并传入绝对路径参数读取文件 ，即：通过后缀尝试加载文件（模块）
--         - 读取 js 文件：
+         - 读取 js 文件：
 -             和 json 文件一样，先读取文件内容
 -             然后用 function 包裹起来
 -             再通过 InThisContext 方法转换成函数，需要引入 vm 模块
 -             最后通过 call() 执行函数
--    - 增加缓存策略    
+    - 增加缓存策略    
 -         创建一个 Module._cache = {} 空对象，用于存放缓存
 -         生成模块对象后，存入缓存（Module._cache[absPathname] = module）
 -         如果 Module._cache[absPathname] 已经存在，表示文件已经读取，则直接抛出 exports 对象
 - 
--     - 识别后缀
+     - 识别后缀
 -          
 - 
 - 
