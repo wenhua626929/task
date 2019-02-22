@@ -13,15 +13,15 @@ let b5
 
 Buffer.concat = function (bufferArray) {
   // console.log(bufferArray)
-  let arr = ''
+  let str = ''
   bufferArray.forEach((item, index) => {
     if (item) {
-      arr += item.toString()
+      str += item.toString()
     }
   })
-  console.log(arr)
-  // console.log(Buffer.from(arr))
-  return Buffer.from(arr)
+  console.log(str)
+  // console.log(Buffer.from(str))
+  return Buffer.from(str)
 }
 let newBuffer = Buffer.concat([b1, b2, b4, b3, b5])
 console.log(newBuffer)
