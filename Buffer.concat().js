@@ -1,6 +1,6 @@
-let b1 = Buffer.from('珠峰')
+let b1 = Buffer.from('我的')
 let b2 = Buffer.from('前端')
-let b3 = Buffer.from('架构课')
+let b3 = Buffer.from('架构')
 let b4 = Buffer.from('')
 let b5
 
